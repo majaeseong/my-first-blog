@@ -1,11 +1,12 @@
 from django.db import models
 from django.utils import timezone
 
-# Create your models here.
+
 class Post(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-    title = models.CharField(max_length=200)
-    text = models.TextField()
+    #다른 모델에서 가져오는거
+    title = models.CharField(max_length=200) #글자 수 제한
+    text = models.TextField() #긴 글자
     created_date = models.DateTimeField(
             default=timezone.now)
     published_date = models.DateTimeField(
